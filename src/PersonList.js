@@ -7,7 +7,7 @@ export default class PersonList extends React.Component {
   }
 
   componentDidMount() {
-    axios.get('localhost:1234/user/read', {
+    axios.get('localhost:8080/user/read', {
 	headers: {
     'contentType' :'application/json; charset=utf-8',
 	  'Access-Control-Allow-Origin': '*',
