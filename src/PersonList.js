@@ -3,36 +3,26 @@ import axios from 'axios';
 
 export default class PersonList extends React.Component {
   state = {
-    products: []
+    infos: []
   }
 
   componentDidMount() {
-    axios.get('localhost:8080/user/read', {
-	headers: {
-    'contentType' :'application/json; charset=utf-8',
-	  'Access-Control-Allow-Origin': '*',
-	},
-	}).then(function (response) {
-		console.log('response is : ' + response.data);
-	}).catch(function (error) {
-		if (error.response) {
-		  console.log(error.response.headers);
-		} 
-		else if (error.request) {
-	      console.log(error.request);
-		} 
-		else {
-		  console.log(error.message);
-		}
-	console.log(error.config);
-});
-  } 
+    axios.get('http://localhost:8080/user/5c2fa3623a96f7049336606c/read')
+      .then(res => {
+        const infos = res.data;
+        console.log(infos)
+        this.setState({ infos });
+      })
+  }
 
   render() {
     return (
-      <ul>
-        { this.state.products.map(product => <li>{product.name}</li>)}
-      </ul>
+      <div>
+        <p>Bienvenue { this.state.infos.name } sur votre espace personnel </p>
+        <p>{"url Nextcloud : " + this.state.infos.urlNextcloud}</p>
+        <p>{"url urlGitea : " +this.state.infos.urlGitea } </p>
+        <p>{"url urlTrello : " +this.state.infos.urlTrello} </p>
+      </div>
     )
   }
 }
