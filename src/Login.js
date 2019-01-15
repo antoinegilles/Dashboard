@@ -3,7 +3,7 @@ import AppBar from 'material-ui/AppBar';
 import RaisedButton from 'material-ui/RaisedButton';
 import TextField from 'material-ui/TextField';
 import React from 'react';
-
+import axios from 'axios';
 
 
 export default class Login extends React.Component {
@@ -15,7 +15,23 @@ constructor(props){
   }
  }
 
+ handleClick(event){
+  axios.post('http://localhost:8080/user/create', {
+    name: "Gwenn",
+    surname: "Louis",
+    urlNextcloud: "d",
+    urlGitea: "bonsoiiiiir",
+    urlTrello: "ksdk",
+    password:"slkjfzkjf"
+  })
+  .then(function (response) {
+    console.log(response);
+  })
+  .catch(function (error) {
+    console.log(error);
+  });
 
+  }
  
 render() {
     return (
