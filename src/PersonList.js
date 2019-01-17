@@ -10,7 +10,6 @@ export default class PersonList extends React.Component {
     axios.get('http://localhost:8080/user/5c2fa3623a96f7049336606c/read')
       .then(res => {
         const infos = res.data;
-        console.log(infos)
         this.setState({ infos });
       })
   }
