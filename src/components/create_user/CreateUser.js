@@ -6,7 +6,7 @@ import React from 'react';
 import axios from 'axios';
 
 
-export default class Login extends React.Component {
+export default class CreateUser extends React.Component {
 constructor(props){
   super(props);
   this.state={
@@ -15,7 +15,8 @@ constructor(props){
   surname:'',
   urlNextcloud:null,
   urlGitea:null,
-  urlTrello:null
+  urlTrello:null,
+  messageCreate:''
   }
  }
 
@@ -44,9 +45,7 @@ else if (this.state.urlGitea === null || this.state.urlNextcloud === null || thi
     urlTrello: this.state.urlTrello,
     password:this.state.password
   })
-  .then(function (response) {
-    //console.log(response);
-  })
+  .then((response) => alert(response.data))
   .catch(function (error) {
     console.log(error);
   });
@@ -59,7 +58,7 @@ render() {
         <MuiThemeProvider>
           <div>
           <AppBar
-             title="Login"
+             title="Create User"
            />
            <TextField
              hintText="Enter your Username"

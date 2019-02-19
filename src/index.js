@@ -3,15 +3,16 @@ import ReactDOM from 'react-dom';
 import './index.css';
 import * as serviceWorker from './serviceWorker';
 import { BrowserRouter as Router, Route } from "react-router-dom";
-import Login from './Login';
-import PersonList from './PersonList';
-
+import CreateUser from './components/create_user/CreateUser';
+import PersonList from './components/dashboard/PersonList';
+import Login from './components/login/Login';
 //ReactDOM.render(<App />, document.getElementById('root'));
 const routing = (
     <Router>
         <div>
-            <Route exact path="/" component={Login} />
+            <Route exact path="/" component={CreateUser} />
             <Route path="/user" component={PersonList} />
+            <Route path="/login" component={Login} />
         </div>
     </Router>
   )
