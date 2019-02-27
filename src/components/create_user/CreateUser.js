@@ -45,7 +45,7 @@ else if (this.state.urlGitea === null || this.state.urlNextcloud === null || thi
     urlTrello: this.state.urlTrello,
     password:this.state.password
   })
-  .then((response) => alert(response.data))
+  .then((response) => response)
   .catch(function (error) {
     console.log(error);
   });

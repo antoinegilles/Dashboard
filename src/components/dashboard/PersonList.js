@@ -4,15 +4,9 @@ import axios from 'axios';
 export default class PersonList extends React.Component {
   state = {
     infos: []
+    
   }
 
-  componentDidMount() {
-    axios.get('http://localhost:8080/user/5c2fa3623a96f7049336606c/read')
-      .then(res => {
-        const infos = res.data;
-        this.setState({ infos });
-      })
-  }
 
   render() {
     return (
@@ -21,6 +15,8 @@ export default class PersonList extends React.Component {
         <p>{"url Nextcloud : " + this.state.infos.urlNextcloud}</p>
         <p>{"url urlGitea : " +this.state.infos.urlGitea } </p>
         <p>{"url urlTrello : " +this.state.infos.urlTrello} </p>
+        <h2> hey {this.props.match.params.id}</h2>
+
       </div>
     )
   }

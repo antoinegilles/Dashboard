@@ -6,12 +6,12 @@ import { BrowserRouter as Router, Route } from "react-router-dom";
 import CreateUser from './components/create_user/CreateUser';
 import PersonList from './components/dashboard/PersonList';
 import Login from './components/login/Login';
-//ReactDOM.render(<App />, document.getElementById('root'));
+
 const routing = (
     <Router>
         <div>
             <Route exact path="/" component={CreateUser} />
-            <Route path="/user" component={PersonList} />
+            <Route path="/user/:id" component={PersonList} />
             <Route path="/login" component={Login} />
         </div>
     </Router>
