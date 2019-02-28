@@ -4,7 +4,6 @@ import RaisedButton from 'material-ui/RaisedButton';
 import TextField from 'material-ui/TextField';
 import React from 'react';
 import axios from 'axios';
-import PersonList from '../dashboard/PersonList';
 
 
 export default class Login extends React.Component {
@@ -26,13 +25,12 @@ constructor(props){
   .then((response) => {
     if(response.status === 200){
       this.setState({id : response.data})
-      console.log(this.state.id)
-    window.location.replace("http://localhost:3000/user/"+this.state.id);
+      window.location.replace("http://localhost:3000/user/"+this.state.id);
     }
   }
   )
-  .catch(function (error) {
-    console.log(error);
+  .catch(function() {
+    alert("Veuillez verifier vos données")
   });
 
   }
